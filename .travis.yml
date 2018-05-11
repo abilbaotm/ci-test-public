@@ -1,7 +1,8 @@
 dist: xenial
 
 before_script:
-  - ls
+  - mkdir /tmp/hrim
+  - mv * /tmp/hrim
   - sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
   - sudo apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116
   - sudo apt-get update
@@ -16,6 +17,7 @@ before_script:
   - wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
   - vcs-import src < ros2.repos
   - touch /home/travis/ros2_ws/src/ros2/rviz/AMENT_IGNORE
+  - cp /tmp/hrim /home/travis/ros2_ws/src/hrim
 script:
   - cd ~/ros2_ws/
   - src/ament/ament_tools/scripts/ament.py build --build-tests --symlink-install
