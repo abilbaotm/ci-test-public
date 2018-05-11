@@ -17,7 +17,7 @@ before_script:
   - wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
   - vcs-import src < ros2.repos
   - touch /home/travis/ros2_ws/src/ros2/rviz/AMENT_IGNORE
-  - cp /tmp/hrim /home/travis/ros2_ws/src/hrim
+  - cp -R /tmp/hrim /home/travis/ros2_ws/src/hrim
   - ls /home/travis/ros2_ws/src/hrim
 script:
   - cd ~/ros2_ws/
